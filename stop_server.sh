@@ -1,2 +1,3 @@
 #!/bin/bash
-service tomcat10 stop
+export CATALINA_HOME=/opt/tomcat9
+$CATALINA_HOME/bin/shutdown.sh
