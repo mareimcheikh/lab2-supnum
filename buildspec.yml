@@ -1,22 +1,24 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
       java: corretto8
     commands:
-      - yum install -y maven
+      # Installer Maven depuis les dépôts Amazon Linux
+      - amazon-linux-extras install -y maven
   build:
     commands:
       - mvn clean install
       - mvn package
-      - mkdir output
+  post_build:
+    commands:
+      - mkdir -p output
       - cp target/*.war output/
+      - cp appspec.yml output/
+      - cp *.sh output/
 
 artifacts:
   files:
-    - output/*.war
-    - appspec.yml
-    - scripts/*
-    - install_dependencies.sh
-    - start_server.sh
-    - stop_server.sh
+    - output/**/*
+  discard-paths: yes
