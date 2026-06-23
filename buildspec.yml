@@ -8,7 +8,7 @@ phases:
       - echo "Installation en cours..."
   build:
     commands:
-      - echo "Build terminé avec succès !"
+      - echo "Build termine avec succes !"
 
 artifacts:
   files:
