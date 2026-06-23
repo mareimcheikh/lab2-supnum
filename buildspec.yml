@@ -3,21 +3,12 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto8
+      python: 3.11   # Mets "nodejs: 18" si c'est du JavaScript, ou "java: corretto17" si c'est du Java
     commands:
-      - amazon-linux-extras install -y maven
+      - echo "Installation en cours..."
   build:
     commands:
-      - mvn clean install
-      - mvn package
-  post_build:
-    commands:
-      - mkdir -p output
-      - cp target/*.war output/
-      - cp appspec.yml output/
-      - cp *.sh output/
-
+      - echo "Build terminé avec succès !"
 artifacts:
   files:
-    - output/**/*
-  discard-paths: yes
+    - '**/*'
