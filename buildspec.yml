@@ -3,12 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.11   # Mets "nodejs: 18" si c'est du JavaScript, ou "java: corretto17" si c'est du Java
+      python: 3.11
     commands:
       - echo "Installation en cours..."
   build:
     commands:
       - echo "Build terminé avec succès !"
+
 artifacts:
   files:
     - '**/*'
